@@ -60,7 +60,10 @@ void q_push (queue *q, int data)
 		if(q_empty(q))
 			q->head = q->tail = temp;
 		else
+		{
 			q->tail->next = temp;
+			q->tail = q->tail->next;
+		}
 	}
 }
 
@@ -92,6 +95,7 @@ int q_front (queue *q)
 {
 	if(q && !q_empty(q))
 			return q->head->data;
+	return -1;
 }
 
 /* function to initialize a queue pointer */

@@ -24,8 +24,8 @@ int q_length (queue *q);
 /* queue core functions */
 
 void q_push (queue *q, int data); // enqueue operation
-void q_pop (quque *q);	// dequeue operation
-int q_front (quque *q);
+void q_pop (queue *q);	// dequeue operation
+int q_front (queue *q);
 int q_empty (queue *q);
 
 /* creation and destruction functions to allocate and deallocate memory to a queue pointer */
