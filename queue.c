@@ -70,11 +70,8 @@ void q_pop (queue *q)
 {
 	node *temp;
 
-	if(q)
+	if(q && !q_empty(q))
 	{
-		if(q_empty(q))
-			return;
-
 		temp = q->head;
 
 		if(q_length(q) == 1)
@@ -89,10 +86,32 @@ void q_pop (queue *q)
 	}
 }
 
+/* function to return the element at the front of the queue */
+
+int q_front (queue *q)
+{
+	if(q && !q_empty(q))
+			return q->head->data;
+}
+
 /* function to initialize a queue pointer */
 
 void q_create (queue **q)
 {
 	*q = malloc(sizeof **q);
 	(*q)->head = (*q)->tail = NULL;
+}
+
+/* function to destroy a queue pointer */
+
+void q_destroy (queue **q)
+{
+	if(*q)
+	{
+		while(!q_empty(*q))
+			q_pop(*q);
+
+		free(*q);
+		*q = NULL;
+	}
 }
