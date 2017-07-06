@@ -77,7 +77,7 @@ void q_pop (queue *q)
 	{
 		temp = q->head;
 
-		if(q_length(q) == 1)
+		if(q->head == q->tail)
 			q->head = q->tail = NULL;
 		else
 			q->head = q->head->next;
