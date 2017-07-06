@@ -20,11 +20,10 @@ typedef struct queue queue;
 
 void q_print (queue *q);
 int q_length (queue *q);
-int q_exists (queue *q);
 
 /* queue core functions */
 
-void q_push (queue *q); // enqueue operation
+void q_push (queue *q, int data); // enqueue operation
 void q_pop (quque *q);	// dequeue operation
 int q_front (quque *q);
 int q_empty (queue *q);

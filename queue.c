@@ -45,6 +45,50 @@ int q_length (queue *q)
 	return i;
 }
 
+/* function to enqueue an element */
+
+void q_push (queue *q, int data)
+{
+	node *temp;
+
+	if(q)
+	{
+		temp = malloc(sizeof *temp);
+		temp->data = data;
+		temp->next = NULL;
+
+		if(q_empty(q))
+			q->head = q->tail = temp;
+		else
+			q->tail->next = temp;
+	}
+}
+
+/* function to dequeue an element */
+
+void q_pop (queue *q)
+{
+	node *temp;
+
+	if(q)
+	{
+		if(q_empty(q))
+			return;
+
+		temp = q->head;
+
+		if(q_length(q) == 1)
+			q->head = q->tail = NULL;
+		else
+			q->head = q->head->next;
+
+		temp->data = 0;
+		temp->next = NULL;
+		free(temp);
+		temp = NULL;
+	}
+}
+
 /* function to initialize a queue pointer */
 
 void q_create (queue **q)
