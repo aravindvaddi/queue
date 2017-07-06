@@ -31,7 +31,7 @@ int q_empty (queue *q);
 
 /* creation and destruction functions to allocate and deallocate memory to a queue pointer */
 
-void q_create (queue *q);
-void q_destroy (queue *q);
+void q_create (queue **q);
+void q_destroy (queue **q);
 
 #endif
